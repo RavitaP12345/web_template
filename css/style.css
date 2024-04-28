@@ -1,0 +1,396 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+#nav{
+    height: 80px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    padding-right: 20px;
+    position: fixed;
+    z-index: 99;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+#main{
+    position: relative;
+    background-color: rgba(18, 12, 12, 0.192);
+
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+
+}
+#page1 h1{
+    font-size: 100px;
+    font-weight: 900;
+    position: relative;
+}
+#page1 h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#page1 p{
+    font-size: 15px;
+    font-weight: 500;
+    width: 40%;
+}
+
+#page1 h1::before{
+    content: "BELIEVE. ACT. ACHIEVE.";
+    color: black;
+    top: -4px;
+    position: absolute;
+    left: -4px;
+    -webkit-text-stroke: 2px greenyellow;
+    z-index: -1;
+}
+#page2{
+    min-height: 100vh;
+    z-index: 10;
+}
+
+#cursor{
+    height: 20px;
+    width: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+
+}
+#cursor-blur{
+    height: 400px;
+    width: 400px;
+    background-color: rgba(172, 255, 47, 0.33);
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(40px);
+    z-index: 9;
+
+}
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+#scroller h4{
+    display: inline-block;
+    font-size: 140px;
+    font-weight: 900;
+    margin-right: 10px;
+    color: transparent;
+    -webkit-text-stroke: 2px greenyellow;
+    transition: all linear 0.5s;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+#scroller h4:hover{
+    color: greenyellow;
+}
+#about-us{
+    height: 40vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+    position: relative;
+    z-index: 10;
+}
+#about-us img{
+    height: 250px;
+    width: 250px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+#about-us-in{
+    width: 50%;
+    text-align: center;
+}
+#about-us-in h3{
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+#about-us-in p{
+    font-size: 20px;
+    line-height: 26px;
+
+}
+
+#cards-container{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 10;
+}
+.card{
+    height: 80%;
+    width: 26%;
+    border-radius: 15%;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    overflow: hidden;
+    transition: all ease 0.6s;
+}
+#card1{
+    background-image: url(https://cdn.pixabay.com/photo/2021/10/01/02/49/woman-6671171_960_720.jpg);
+}
+#card2{
+    background-image: url(https://cdn.pixabay.com/photo/2018/03/26/10/21/skills-3262172_960_720.jpg);
+}
+#card3{
+    background-image: url(https://cdn.pixabay.com/photo/2024/04/10/08/12/ai-generated-8687530_960_720.png);
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: greenyellow;
+    padding-top: 160px;
+    padding: 50px;
+    opacity: 0;
+    transition: all ease 0.6s;
+}
+.overlay h4{
+    color: black;
+    font-size: 30px;
+    font-weight: 160px;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+.overlay p{
+    color: black;
+}
+.overlay ul li{
+    color: black;
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.card:hover{
+    transform: rotate3d(-1, 1, 0, 20deg);
+}
+#green-div{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: linear-gradient(rgb(198, 241, 134), rgb(59, 97, 3)); */
+    /* background-color: rgba(172, 255, 47, 0.46); */
+    position: relative;
+    z-index: 10;
+    transition: all ease 0.6s;
+   
+}
+#green-div h4{
+    font-size: 50px;
+    font-weight: 800;
+    z-index: 10;
+    transition: all ease 0.6s;
+   
+}
+#green-div:hover{
+    background-image: linear-gradient(rgb(101, 129, 46), black);
+}
+#container{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#container img{
+    height: 100%;
+    width: 30%;
+}
+#container #text-container{
+    height: 100%;
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    overflow: hidden;
+    transition: all ease 0.6s;
+    overflow: hidden;
+}
+#text-container h4{
+    font-size: 30px;
+    font-family: 800;
+    padding-bottom: 20px;
+}
+#text-container p{
+    font-size: 20px;
+    font-family: 800;
+    padding-bottom: 20px;
+    line-height: 30px;
+}
+#text-container h4:hover{
+    color: greenyellow;
+}
+#text-container p:hover{
+    color: greenyellow;
+}
+#text-container:hover{
+    transform: rotate3d(-1, 1, 0, 20deg);
+}
+
+
+#subsscribe-form{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    padding-top: 50px;
+}
+#subsscribe-form #form-group{
+    width: 50%;
+    height: 100%;
+    /* background-color: gray; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#subsscribe-form p{
+    background-color: B51B75;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    z-index: 9;
+}
+#subsscribe-form #form-group input{
+    display: flex;
+    width: 400px;
+    height: 50px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    color: black;
+}
+#subsscribe-form #form-group button{
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+    font-weight: 800;
+    background-color: greenyellow;
+    transition: all ease 0.7s;
+
+}
+#subsscribe-form #form-group button:hover{
+    background-color: rgb(198, 64, 73);
+}
+
+#subsscribe-form #design-pattern{
+    height: 300px;
+    width: 300px;
+    background-color: brown;
+    position: absolute;
+    border-radius: 0 0 50% 0;
+    filter: blur(20px);
+}
+
+
+
+
+#footer{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 10;
+}
+#basic-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#basic-details ul{
+    list-style-type: none;
+    padding-right: 30px;
+    line-height: 30px;
+}
+
+#icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#icon-container span{
+    padding-right: 30px;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+
+
+@keyframes scroll {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateY(0);
+    }
+    
+}
